@@ -487,15 +487,12 @@ void PostAlignDecision(const seqAnResult & maxExtScore, const readType_ & read1,
 	{
         if(!b_pars.outputPaf)  // BELLA output format
         {
-            string output_str = read2.nametag + "\t" + read1.nametag + "\t" + to_string(count) + "\t" + to_string(maxExtScore.score) + "\t" + to_string(ov) + "\t" + maxExtScore.strand + "\t" + to_string(begpV) + "\t" + to_string(endpV) + "\t" + to_string(read2len) + "\t" + to_string(begpH) + "\t" + to_string(endpH) + "\t" + to_string(read1len) + "\n";
-            std::vector<std::string> v = split(output_str, '\t');
-            if (v.size() != 12) { std::cout << "invalid output length" << std::endl; }
-            myBatch << output_str << flush;
-            if (read2.nametag[0] != 'm') std::cout << "invalid nametag 2\n" << std::flush;
-            if (read1.nametag[0] != 'm') std::cout << "invalid nametag 1\n" << std::flush;
-            // myBatch << read2.nametag << '\t' << read1.nametag << '\t' << count << '\t' << maxExtScore.score << '\t' << ov << '\t' <<
-            //    maxExtScore.strand << '\t' << begpV << '\t' << endpV << '\t' << read2len << '\t' << begpH << '\t' << endpH << '\t' <<
-            //    read1len << endl;
+            //string output_str = read2.nametag + "\t" + read1.nametag + "\t" + to_string(count) + "\t" + to_string(maxExtScore.score) + "\t" + to_string(ov) + "\t" + maxExtScore.strand + "\t" + to_string(begpV) + "\t" + to_string(endpV) + "\t" + to_string(read2len) + "\t" + to_string(begpH) + "\t" + to_string(endpH) + "\t" + to_string(read1len) + "\n";
+            //std::vector<std::string> v = split(output_str, '\t');
+            //myBatch << output_str << flush;
+            myBatch << read2.nametag << '\t' << read1.nametag << '\t' << count << '\t' << maxExtScore.score << '\t' << ov << '\t' <<
+               maxExtScore.strand << '\t' << begpV << '\t' << endpV << '\t' << read2len << '\t' << begpH << '\t' << endpH << '\t' <<
+               read1len << endl;
                 // column seq name
                 // row seq name
                 // number of shared k-mer
